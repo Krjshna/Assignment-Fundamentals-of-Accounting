@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS Financial Statements (2019-2023)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Security: Disable Text Selection */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
+        }
+        .highlight-row {
+            background-color: #eff6ff; /* blue-50 */
+            font-weight: 700;
+            color: #1e3a8a; /* blue-900 */
+        }
+        .highlight-row td:first-child {
+            border-left: 4px solid #2563eb; /* blue-600 */
+        }
+        .negative-val {
+            color: #dc2626; /* red-600 */
+        }
+
+        /* Security: Hide everything when printing (Ctrl+P) */
+        @media print {
+            body {
+                display: none;
+            }
+        }
+
+        /* Security Overlay */
+        #security-curtain {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 99999;
+            color: #fff;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Watermark */
+        .watermark-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.1; /* Very faint */
+        }
+
+        .watermark-image {
+            width: 40vw; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .watermark-text {
+            font-size: 6vw;
+            font-weight: 800;
+            color: rgba(220, 38, 38, 1); /* Faint Red */
+            white-space: nowrap;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 relative">
+
+    <!-- Watermark -->
+    <div class="watermark-container">
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+                <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+                <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+        <img src="velcocity forge.png" alt="Watermark" class="watermark-image">
+        <div class="watermark-text">Made by Krishna</div>
+    </div>
+
+    <!-- Privacy Curtain (Hidden by default) -->
+    <div id="security-curtain">
+        <div class="text-4xl font-bold mb-4">🔒 Protected Content</div>
+        <p class="text-slate-400 mb-8">Content is hidden while the window is not in focus.</p>
+        <div class="animate-pulse text-blue-400">Click anywhere on the page to resume</div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-2 py-4 md:px-4 md:py-8">
+        
+        <!-- Header Section -->
+        <header class="mb-6 md:mb-10 text-center bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+            <h1 class="text-2xl md:text-4xl font-bold text-blue-700 mb-2">Assignment: Fundamentals of Accounting</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-slate-700">ASUSTeK Computer Inc. (ASUS)</h2>
+            <div class="mt-4 flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm font-medium text-slate-500">
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Currency: NT$ Billions</span>
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Period: 2019 - 2023</span>
+            </div>
+        </header>
+
+        <!-- 1. Balance Sheet -->
+        <section class="mb-8 md:mb-12 bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-3 md:p-4">
+                <h3 class="text-lg md:text-xl font-bold text-white">1. Consolidated Balance Sheet</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-600 text-xs md:text-sm uppercase tracking-wider border-b border-slate-200">
+                            <th class="p-2 md:p-4 font-bold whitespace-nowrap">Item</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2023</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2022</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2021</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2020</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2019</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs md:text-sm">
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Current Assets</td>
+                            <td class="p-2 md:p-4 text-right">307.2</td>
+                            <td class="p-2 md:p-4 text-right">322.2</td>
+                            <td class="p-2 md:p-4 text-right">348.7</td>
+                            <td class="p-2 md:p-4 text-right">260.6</td>
+                            <td class="p-2 md:p-4 text-right">208.5</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Cash & Cash Equivalents</td>
+                            <td class="p-2 md:p-4 text-right">163.4</td>
+                            <td class="p-2 md:p-4 text-right">155.0</td>
+                            <td class="p-2 md:p-4 text-right">148.0</td>
+                            <td class="p-2 md:p-4 text-right">137.0</td>
+                            <td class="p-2 md:p-4 text-right">115.3</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Accounts Receivable</td>
+                            <td class="p-2 md:p-4 text-right">82.5</td>
+                            <td class="p-2 md:p-4 text-right">95.7</td>
+                            <td class="p-2 md:p-4 text-right">100.1</td>
+                            <td class="p-2 md:p-4 text-right">75.4</td>
+                            <td class="p-2 md:p-4 text-right">55.2</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Inventories</td>
+                            <td class="p-2 md:p-4 text-right">61.3</td>
+                            <td class="p-2 md:p-4 text-right">71.5</td>
+                            <td class="p-2 md:p-4 text-right">100.6</td>
+                            <td class="p-2 md:p-4 text-right">48.2</td>
+                            <td class="p-2 md:p-4 text-right">38.0</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Non-Current Assets</td>
+                            <td class="p-2 md:p-4 text-right">172.9</td>
+                            <td class="p-2 md:p-4 text-right">148.8</td>
+                            <td class="p-2 md:p-4 text-right">122.5</td>
+                            <td class="p-2 md:p-4 text-right">120.3</td>
+                            <td class="p-2 md:p-4 text-right">112.4</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Property, Plant & Equipment</td>
+                            <td class="p-2 md:p-4 text-right">20.1</td>
+                            <td class="p-2 md:p-4 text-right">21.1</td>
+                            <td class="p-2 md:p-4 text-right">21.1</td>
+                            <td class="p-2 md:p-4 text-right">22.3</td>
+                            <td class="p-2 md:p-4 text-right">24.5</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Intangible Assets</td>
+                            <td class="p-2 md:p-4 text-right">3.5</td>
+                            <td class="p-2 md:p-4 text-right">3.8</td>
+                            <td class="p-2 md:p-4 text-right">4.1</td>
+                            <td class="p-2 md:p-4 text-right">4.5</td>
+                            <td class="p-2 md:p-4 text-right">5.2</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Right-of-use Assets</td>
+                            <td class="p-2 md:p-4 text-right">6.2</td>
+                            <td class="p-2 md:p-4 text-right">6.5</td>
+                            <td class="p-2 md:p-4 text-right">7.2</td>
+                            <td class="p-2 md:p-4 text-right">8.1</td>
+                            <td class="p-2 md:p-4 text-right">9.0</td>
+                        </tr>
+                        <tr class="bg-blue-50 font-bold border-t-2 border-blue-200">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Total Assets</td>
+                            <td class="p-2 md:p-4 text-right">480.1</td>
+                            <td class="p-2 md:p-4 text-right">471.0</td>
+                            <td class="p-2 md:p-4 text-right">471.2</td>
+                            <td class="p-2 md:p-4 text-right">380.9</td>
+                            <td class="p-2 md:p-4 text-right">320.9</td>
+                        </tr>
+                        <tr><td colspan="6" class="bg-slate-100 h-2 md:h-4"></td></tr>
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Current Liabilities</td>
+                            <td class="p-2 md:p-4 text-right">197.6</td>
+                            <td class="p-2 md:p-4 text-right">217.4</td>
+                            <td class="p-2 md:p-4 text-right">214.5</td>
+                            <td class="p-2 md:p-4 text-right">168.2</td>
+                            <td class="p-2 md:p-4 text-right">135.6</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Accounts Payable</td>
+                            <td class="p-2 md:p-4 text-right">65.2</td>
+                            <td class="p-2 md:p-4 text-right">68.4</td>
+                            <td class="p-2 md:p-4 text-right">85.2</td>
+                            <td class="p-2 md:p-4 text-right">70.1</td>
+                            <td class="p-2 md:p-4 text-right">55.4</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 whitespace-nowrap">Provisions (Short-term)</td>
+                            <td class="p-2 md:p-4 text-right">12.5</td>
+                            <td class="p-2 md:p-4 text-right">14.2</td>
+                            <td class="p-2 md:p-4 text-right">16.8</td>
+                            <td class="p-2 md:p-4 text-right">10.5</td>
+                            <td class="p-2 md:p-4 text-right">8.2</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Non-Current Liabilities</td>
+                            <td class="p-2 md:p-4 text-right">23.6</td>
+                            <td class="p-2 md:p-4 text-right">26.8</td>
+                            <td class="p-2 md:p-4 text-right">22.5</td>
+                            <td class="p-2 md:p-4 text-right">18.4</td>
+                            <td class="p-2 md:p-4 text-right">15.8</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Long-term Borrowings</td>
+                            <td class="p-2 md:p-4 text-right">2.5</td>
+                            <td class="p-2 md:p-4 text-right">3.1</td>
+                            <td class="p-2 md:p-4 text-right">1.8</td>
+                            <td class="p-2 md:p-4 text-right">1.5</td>
+                            <td class="p-2 md:p-4 text-right">1.2</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Deferred Tax Liabilities</td>
+                            <td class="p-2 md:p-4 text-right">8.2</td>
+                            <td class="p-2 md:p-4 text-right">9.5</td>
+                            <td class="p-2 md:p-4 text-right">8.2</td>
+                            <td class="p-2 md:p-4 text-right">6.5</td>
+                            <td class="p-2 md:p-4 text-right">5.4</td>
+                        </tr>
+                         <tr class="bg-blue-50 font-bold border-t border-blue-100">
+                            <td class="p-2 md:p-4 text-slate-700 whitespace-nowrap">Total Liabilities</td>
+                            <td class="p-2 md:p-4 text-right">221.2</td>
+                            <td class="p-2 md:p-4 text-right">244.2</td>
+                            <td class="p-2 md:p-4 text-right">237.0</td>
+                            <td class="p-2 md:p-4 text-right">186.6</td>
+                            <td class="p-2 md:p-4 text-right">151.4</td>
+                        </tr>
+                        <tr><td colspan="6" class="bg-slate-100 h-2 md:h-4"></td></tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Share Capital</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                        </tr>
+                         <tr class="highlight-row">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 whitespace-nowrap">Reserves & Retained Earnings</td>
+                            <td class="p-2 md:p-4 text-right">251.5</td>
+                            <td class="p-2 md:p-4 text-right">219.4</td>
+                            <td class="p-2 md:p-4 text-right">226.8</td>
+                            <td class="p-2 md:p-4 text-right">186.9</td>
+                            <td class="p-2 md:p-4 text-right">162.1</td>
+                        </tr>
+                         <tr class="bg-green-50 font-bold border-t-2 border-green-400 text-green-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Total Equity</td>
+                            <td class="p-2 md:p-4 text-right">258.9</td>
+                            <td class="p-2 md:p-4 text-right">226.8</td>
+                            <td class="p-2 md:p-4 text-right">234.2</td>
+                            <td class="p-2 md:p-4 text-right">194.3</td>
+                            <td class="p-2 md:p-4 text-right">169.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. Income Statement -->
+        <section class="mb-8 md:mb-12 bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+             <div class="bg-gradient-to-r from-emerald-600 to-emerald-800 p-3 md:p-4">
+                <h3 class="text-lg md:text-xl font-bold text-white">2. Consolidated Income Statement (Profit & Loss)</h3>
+            </div>
+             <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-600 text-xs md:text-sm uppercase tracking-wider border-b border-slate-200">
+                            <th class="p-2 md:p-4 font-bold whitespace-nowrap">Item</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2023</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2022</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2021</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2020</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2019</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs md:text-sm">
+                        <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Revenue</td>
+                            <td class="p-2 md:p-4 text-right">482.3</td>
+                            <td class="p-2 md:p-4 text-right">537.2</td>
+                            <td class="p-2 md:p-4 text-right">535.2</td>
+                            <td class="p-2 md:p-4 text-right">412.8</td>
+                            <td class="p-2 md:p-4 text-right">351.3</td>
+                        </tr>
+                         <tr class="highlight-row bg-red-50 text-red-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Cost of Goods Sold (COGS)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(405.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(460.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(425.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(342.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(298.6)</td>
+                        </tr>
+                        <tr class="bg-slate-50 font-bold border-t border-slate-200">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Gross Profit</td>
+                            <td class="p-2 md:p-4 text-right">77.2</td>
+                            <td class="p-2 md:p-4 text-right">76.7</td>
+                            <td class="p-2 md:p-4 text-right">110.1</td>
+                            <td class="p-2 md:p-4 text-right">70.7</td>
+                            <td class="p-2 md:p-4 text-right">52.7</td>
+                        </tr>
+                        <tr><td colspan="6" class="h-2"></td></tr>
+                         <tr class="highlight-row text-red-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Operating Expenses</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(58.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(59.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(58.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(42.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(38.2)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Selling Expenses</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(32.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(33.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(32.8)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(24.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(21.5)</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">General & Admin Expenses</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(12.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.8)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(9.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(8.8)</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">R&D Expenses</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(13.7)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(13.9)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(14.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(8.7)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(7.9)</td>
+                        </tr>
+                        <tr><td colspan="6" class="h-2"></td></tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 text-slate-700 whitespace-nowrap">Operating Profit</td>
+                            <td class="p-2 md:p-4 text-right">18.9</td>
+                            <td class="p-2 md:p-4 text-right">17.5</td>
+                            <td class="p-2 md:p-4 text-right">51.6</td>
+                            <td class="p-2 md:p-4 text-right">28.4</td>
+                            <td class="p-2 md:p-4 text-right">14.5</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 text-slate-500 whitespace-nowrap">Non-Operating Income/Expenses</td>
+                            <td class="p-2 md:p-4 text-right">3.2</td>
+                            <td class="p-2 md:p-4 text-right">2.8</td>
+                            <td class="p-2 md:p-4 text-right">4.1</td>
+                            <td class="p-2 md:p-4 text-right">3.5</td>
+                            <td class="p-2 md:p-4 text-right">2.1</td>
+                        </tr>
+                         <tr class="highlight-row">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Depreciation & Amortization</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(8.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(8.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(7.9)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(7.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(7.1)</td>
+                        </tr>
+                        <tr class="font-bold border-t border-slate-200 bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Profit Before Tax</td>
+                            <td class="p-2 md:p-4 text-right">22.1</td>
+                            <td class="p-2 md:p-4 text-right">20.3</td>
+                            <td class="p-2 md:p-4 text-right">55.7</td>
+                            <td class="p-2 md:p-4 text-right">31.9</td>
+                            <td class="p-2 md:p-4 text-right">16.6</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-200">
+                            <td class="p-2 md:p-4 text-slate-500 whitespace-nowrap">Income Tax Expense</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(6.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(5.6)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(5.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.3)</td>
+                        </tr>
+                        <tr class="bg-emerald-50 font-bold border-t-2 border-emerald-400 text-emerald-900 text-base">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit / (Loss)</td>
+                            <td class="p-2 md:p-4 text-right">15.9</td>
+                            <td class="p-2 md:p-4 text-right">14.7</td>
+                            <td class="p-2 md:p-4 text-right">44.5</td>
+                            <td class="p-2 md:p-4 text-right">26.6</td>
+                            <td class="p-2 md:p-4 text-right">14.3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. Cash Flow -->
+        <section class="mb-8 md:mb-12 bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+             <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-3 md:p-4">
+                <h3 class="text-lg md:text-xl font-bold text-white">3. Consolidated Cash Flow Statement</h3>
+            </div>
+             <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-600 text-xs md:text-sm uppercase tracking-wider border-b border-slate-200">
+                            <th class="p-2 md:p-4 font-bold whitespace-nowrap">Item</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2023</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2022</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2021</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2020</th>
+                            <th class="p-2 md:p-4 font-bold text-right">2019</th>
+                        </tr>
+                    </thead>
+                     <tbody class="divide-y divide-slate-100 text-xs md:text-sm">
+                        <tr class="highlight-row text-purple-900 bg-purple-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Cash from Operating Activities</td>
+                            <td class="p-2 md:p-4 text-right">45.2</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(15.7)</td>
+                            <td class="p-2 md:p-4 text-right">32.7</td>
+                            <td class="p-2 md:p-4 text-right">52.1</td>
+                            <td class="p-2 md:p-4 text-right">24.5</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Profit Before Tax</td>
+                            <td class="p-2 md:p-4 text-right">22.1</td>
+                            <td class="p-2 md:p-4 text-right">20.3</td>
+                            <td class="p-2 md:p-4 text-right">55.7</td>
+                            <td class="p-2 md:p-4 text-right">31.9</td>
+                            <td class="p-2 md:p-4 text-right">16.6</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Adjustments for Depreciation</td>
+                            <td class="p-2 md:p-4 text-right">8.5</td>
+                            <td class="p-2 md:p-4 text-right">8.2</td>
+                            <td class="p-2 md:p-4 text-right">7.9</td>
+                            <td class="p-2 md:p-4 text-right">7.5</td>
+                            <td class="p-2 md:p-4 text-right">7.1</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Changes in Working Capital</td>
+                            <td class="p-2 md:p-4 text-right">14.6</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(44.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(30.9)</td>
+                            <td class="p-2 md:p-4 text-right">12.7</td>
+                            <td class="p-2 md:p-4 text-right">0.8</td>
+                        </tr>
+                        <tr><td colspan="6" class="h-2"></td></tr>
+                         <tr class="highlight-row text-purple-900 bg-purple-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Cash from Investing Activities</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(8.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(3.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(5.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(6.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(4.2)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Acquisition of PPE</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(1.7)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(1.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.5)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Acquisition of Intangible Assets</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(0.8)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(0.9)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(1.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(1.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(1.5)</td>
+                        </tr>
+                        <tr><td colspan="6" class="h-2"></td></tr>
+                         <tr class="highlight-row text-purple-900 bg-purple-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Cash from Financing Activities</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(28.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(18.9)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(22.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(15.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(10.5)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Payment of Dividends</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(25.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(31.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(19.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(10.4)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(9.5)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-2 md:p-4 pl-4 md:pl-8 text-slate-500 whitespace-nowrap">Repayment of Lease Liabilities</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.2)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.4)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.5)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(2.8)</td>
+                        </tr>
+                        <tr><td colspan="6" class="h-2"></td></tr>
+                         <tr class="hover:bg-slate-50 font-bold border-t border-slate-200">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Increase/(Decrease) in Cash</td>
+                            <td class="p-2 md:p-4 text-right">8.4</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(37.8)</td>
+                            <td class="p-2 md:p-4 text-right">5.1</td>
+                            <td class="p-2 md:p-4 text-right">30.4</td>
+                            <td class="p-2 md:p-4 text-right">9.8</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50 text-slate-500">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Cash at Beginning of Year</td>
+                            <td class="p-2 md:p-4 text-right">155.0</td>
+                            <td class="p-2 md:p-4 text-right">192.8</td>
+                            <td class="p-2 md:p-4 text-right">187.7</td>
+                            <td class="p-2 md:p-4 text-right">157.3</td>
+                            <td class="p-2 md:p-4 text-right">147.5</td>
+                        </tr>
+                        <tr class="bg-purple-100 font-bold border-t-2 border-purple-400 text-purple-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Cash at End of Year</td>
+                            <td class="p-2 md:p-4 text-right">163.4</td>
+                            <td class="p-2 md:p-4 text-right">155.0</td>
+                            <td class="p-2 md:p-4 text-right">192.8</td>
+                            <td class="p-2 md:p-4 text-right">187.7</td>
+                            <td class="p-2 md:p-4 text-right">157.3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. Equity -->
+        <section class="mb-8 md:mb-12 bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+             <div class="bg-gradient-to-r from-teal-600 to-teal-800 p-3 md:p-4">
+                <h3 class="text-lg md:text-xl font-bold text-white">4. Statement of Changes in Equity</h3>
+            </div>
+            <div class="overflow-x-auto">
+                 <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-600 text-xs md:text-sm uppercase tracking-wider border-b border-slate-200">
+                            <th class="p-2 md:p-4 font-bold whitespace-nowrap">Item</th>
+                            <th class="p-2 md:p-4 font-bold text-right whitespace-nowrap">Share Capital</th>
+                            <th class="p-2 md:p-4 font-bold text-right whitespace-nowrap">Capital Surplus</th>
+                            <th class="p-2 md:p-4 font-bold text-right whitespace-nowrap">Retained Earnings (Reserves)</th>
+                            <th class="p-2 md:p-4 font-bold text-right whitespace-nowrap">Total Equity</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs md:text-sm">
+                        <tr class="font-bold bg-teal-50 text-teal-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Balance at Jan 1, 2019</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">15.2</td>
+                            <td class="p-2 md:p-4 text-right">145.8</td>
+                            <td class="p-2 md:p-4 text-right">168.4</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit 2019</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">14.3</td>
+                            <td class="p-2 md:p-4 text-right">14.3</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Dividends Paid</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.1)</td>
+                        </tr>
+                         <tr class="border-b-2 border-slate-200">
+                             <td class="p-2 md:p-4 font-bold text-slate-700 whitespace-nowrap">Balance at Dec 31, 2019</td>
+                            <td class="p-2 md:p-4 text-right font-bold">7.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold">14.7</td>
+                            <td class="p-2 md:p-4 text-right font-bold">147.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold">169.5</td>
+                        </tr>
+
+                         <tr class="font-bold bg-teal-50 text-teal-900 mt-4">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Balance at Jan 1, 2020</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">14.7</td>
+                            <td class="p-2 md:p-4 text-right">147.4</td>
+                            <td class="p-2 md:p-4 text-right">169.5</td>
+                        </tr>
+                        <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit 2020</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">26.6</td>
+                            <td class="p-2 md:p-4 text-right">26.6</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Dividends Paid</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(10.4)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(10.4)</td>
+                        </tr>
+                        <tr class="border-b-2 border-slate-200">
+                             <td class="p-2 md:p-4 font-bold text-slate-700 whitespace-nowrap">Balance at Dec 31, 2020</td>
+                            <td class="p-2 md:p-4 text-right font-bold">7.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold">15.9</td>
+                            <td class="p-2 md:p-4 text-right font-bold">171.0</td>
+                            <td class="p-2 md:p-4 text-right font-bold">194.3</td>
+                        </tr>
+
+                        <tr class="font-bold bg-teal-50 text-teal-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Balance at Jan 1, 2021</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">15.9</td>
+                            <td class="p-2 md:p-4 text-right">171.0</td>
+                            <td class="p-2 md:p-4 text-right">194.3</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit 2021</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">44.5</td>
+                            <td class="p-2 md:p-4 text-right">44.5</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Dividends Paid</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(19.3)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(19.3)</td>
+                        </tr>
+                        <tr class="border-b-2 border-slate-200">
+                             <td class="p-2 md:p-4 font-bold text-slate-700 whitespace-nowrap">Balance at Dec 31, 2021</td>
+                            <td class="p-2 md:p-4 text-right font-bold">7.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold">18.0</td>
+                            <td class="p-2 md:p-4 text-right font-bold">208.8</td>
+                            <td class="p-2 md:p-4 text-right font-bold">234.2</td>
+                        </tr>
+
+                        <tr class="font-bold bg-teal-50 text-teal-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Balance at Jan 1, 2022</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">18.0</td>
+                            <td class="p-2 md:p-4 text-right">208.8</td>
+                            <td class="p-2 md:p-4 text-right">234.2</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit 2022</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">14.7</td>
+                            <td class="p-2 md:p-4 text-right">14.7</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Dividends Paid</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(31.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(31.1)</td>
+                        </tr>
+                         <tr class="border-b-2 border-slate-200">
+                             <td class="p-2 md:p-4 font-bold text-slate-700 whitespace-nowrap">Balance at Dec 31, 2022</td>
+                            <td class="p-2 md:p-4 text-right font-bold">7.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold">16.5</td>
+                            <td class="p-2 md:p-4 text-right font-bold">202.9</td>
+                            <td class="p-2 md:p-4 text-right font-bold">226.8</td>
+                        </tr>
+
+                        <tr class="font-bold bg-teal-50 text-teal-900">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Balance at Jan 1, 2023</td>
+                            <td class="p-2 md:p-4 text-right">7.4</td>
+                            <td class="p-2 md:p-4 text-right">16.5</td>
+                            <td class="p-2 md:p-4 text-right">202.9</td>
+                            <td class="p-2 md:p-4 text-right">226.8</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Net Profit 2023</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">15.9</td>
+                            <td class="p-2 md:p-4 text-right">15.9</td>
+                        </tr>
+                         <tr class="text-slate-500 hover:bg-slate-50">
+                            <td class="p-2 md:p-4 whitespace-nowrap">Dividends Paid</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right">-</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.1)</td>
+                            <td class="p-2 md:p-4 text-right negative-val">(11.1)</td>
+                        </tr>
+                        <tr class="bg-teal-100 border-t-2 border-teal-500">
+                             <td class="p-2 md:p-4 font-bold text-teal-900 whitespace-nowrap">Balance at Dec 31, 2023</td>
+                            <td class="p-2 md:p-4 text-right font-bold text-teal-900">7.4</td>
+                            <td class="p-2 md:p-4 text-right font-bold text-teal-900">17.3</td>
+                            <td class="p-2 md:p-4 text-right font-bold text-teal-900">234.2</td>
+                            <td class="p-2 md:p-4 text-right font-bold text-teal-900">258.9</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                  <div class="bg-slate-50 p-2 md:p-3 text-xs text-slate-500 text-center italic border-t border-slate-200">
+                    (Note: "Retained Earnings" is the primary component of Reserves.)
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Notes -->
+        <section class="mb-8 md:mb-12 bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+             <div class="bg-slate-800 p-3 md:p-4">
+                <h3 class="text-lg md:text-xl font-bold text-white">5. Notes to Accounts (Summary)</h3>
+            </div>
+            <div class="p-4 md:p-6">
+                <p class="mb-4 text-slate-600 text-sm md:text-base">Significant accounting policies applied in the preparation of these financial statements:</p>
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">1. Basis of Preparation</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Prepared in accordance with "Regulations Governing the Preparation of Financial Reports by Securities Issuers" and IFRS endorsed by the FSC of Taiwan.</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">2. Revenue Recognition</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed"><strong class="text-emerald-700">Revenue</strong> is recognized when control of products transfers. Measured at fair value of consideration received/receivable, net of returns/discounts.</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-amber-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">3. Inventories</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Stated at lower of cost (weighted-average) or net realizable value. <strong class="text-amber-700">Provisions</strong> made for devaluation when NRV is lower than cost.</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">4. Property, Plant & Equipment</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Stated at cost less accumulated <strong class="text-purple-700">depreciation</strong>. Straight-line depreciation over useful lives (Buildings: 10-50y, Machinery: 3-10y).</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-red-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">5. Provisions</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed"><strong class="text-red-700">Provisions</strong> (e.g., warranty) are recognized when there is a present obligation from past events and probable outflow of resources.</p>
+                    </div>
+                     <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-indigo-500 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 text-sm md:text-base">6. Foreign Currency</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Functional currency is NT$. Transactions translated using exchange rates prevailing at transaction dates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-slate-400 text-xs md:text-sm pb-8">
+            <p>&copy; Assignment Submission</p>
+        </footer>
+
+    </div>
+
+    <!-- Security Script -->
+    <script>
+        const curtain = document.getElementById('security-curtain');
+
+        // 1. Anti-Snipping Tool Strategy: 
+        // If the window loses focus (blur), it usually means the user clicked the Snipping Tool or another window.
+        // We immediately hide the content behind a black curtain.
+        window.addEventListener('blur', () => {
+            curtain.style.display = 'flex';
+        });
+
+        // Restore content when focus returns
+        window.addEventListener('focus', () => {
+            curtain.style.display = 'none';
+        });
+
+        // 2. Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 3. Disable Keyboard Shortcuts (Ctrl+P, Ctrl+S, Ctrl+U, Ctrl+C, F12)
+        document.addEventListener('keydown', function(e) {
+            
+            // "Print Screen" Key Detection
+            if (e.key === 'PrintScreen') {
+                curtain.style.display = 'flex';
+                alert('Security Alert: Screenshots are disabled on this page.');
+                
+                // Attempt to clear clipboard (to prevent pasting the screenshot)
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText('');
+                }
+                
+                // Keep curtain for 1 second to annoy consecutive attempts
+                setTimeout(() => {
+                    curtain.style.display = 'none';
+                }, 1000);
+            }
+
+            // Check for Ctrl (Windows) or Meta (Mac Command) keys
+            if (e.ctrlKey || e.metaKey) {
+                switch (e.key.toLowerCase()) {
+                    case 'p': // Print
+                    case 's': // Save
+                    case 'u': // View Source
+                    case 'c': // Copy
+                        e.preventDefault();
+                        return false;
+                }
+            }
+            // Block F12 (DevTools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+
+</body>
+</html>
